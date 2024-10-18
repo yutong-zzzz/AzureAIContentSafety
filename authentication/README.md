@@ -8,6 +8,14 @@ There are two kinds of authentication headers available for Azure AI Content Saf
 | Ocp-Apim-Subscription-Key | Use this header to authenticate with a subscription key for a specific service or a multi-service subscription key. |
 | Authorization | Use this header if you are using an access token. The steps to perform a token exchange are detailed in the following sections. The value provided follows this format: `Bearer <TOKEN>`. |
 
+## Table of Contents
+
+1. [Authenticate with API key](#authenticate-with-api-key)
+2. [Authenticate with Azure Active Directory](#authenticate-with-azure-active-directory)
+3. [Authorize access to managed identities](#authorize-access-to-managed-identities)
+4. [Authenticate with a system-assigned managed identity](#authenticate-with-a-system-assigned-managed-identity)
+5. [Authenticate with a user-assigned managed identity](#authenticate-with-a-user-assigned-managed-identity)
+
 ## Authenticate with API key
 
 If you have created your Content Safety resource, you can go to azure portal, click into the resource, and find the keys under `Keys and Endpoint` tab.
@@ -81,3 +89,30 @@ client.DefaultRequestHeaders.Add("Authorization", token);
 ```
 
 For complete sample to call Restful API by http using managed identity, please refer to [Restful_ManagedIdentity.cs](./Restful_ManagedIdentity.cs)
+
+## Main Features
+
+The main features of the `authentication/README.md` file are:
+
+* Provides an overview of Azure AI Content Safety authentication methods 🔑
+* Describes two types of authentication headers: `Ocp-Apim-Subscription-Key` and `Authorization` 📝
+* Explains how to authenticate with an API key, including code examples in C# 💻
+* Details the process of authenticating with Azure Active Directory (AAD) and enabling AAD for the resource 🔐
+* Covers the use of managed identities for authentication, including system-assigned and user-assigned managed identities, with code examples in C# 👥
+
+## Summary of Authentication Methods
+
+### API Key
+
+- Use case: Quick and easy path to start development
+- Example: `Ocp-Apim-Subscription-Key`
+
+### Azure Active Directory (AAD)
+
+- Use case: More complex scenarios requiring Azure role-based access control (Azure RBAC)
+- Example: `Authorization` header with `Bearer <TOKEN>`
+
+### Managed Identities
+
+- Use case: Eliminates the need for developers to manage secrets and certificates
+- Example: `ManagedIdentityCredential` in C#
